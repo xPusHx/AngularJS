@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Geometria';
+  src: url('fonts/Geometria.eot');
+  src: url('fonts/Geometria.eot?#iefix') format('embedded-opentype'), url('fonts/Geometria.woff') format('woff'), url('fonts/Geometria.ttf') format('truetype'), url('fonts/Geometria.svg#svgFontName') format('svg');
+}
+@font-face {
+  font-family: 'Geometria Bold';
+  src: url('fonts/Geometria Bold.eot');
+  src: url('fonts/Geometria Bold.eot?#iefix') format('embedded-opentype'), url('fonts/Geometria Bold.woff') format('woff'), url('fonts/Geometria Bold.ttf') format('truetype'), url('fonts/Geometria Bold.svg#svgFontName') format('svg');
+}
