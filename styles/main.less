@@ -1,6 +1,7 @@
 //Colors
 @black: #000;
 @white: #fff;
+@bg-grey: #ddd;
 
 //Variables
 @elements-radius: 4px;
@@ -26,12 +27,40 @@
 		url('@{fonts}/@{fontname}.svg#svgFontName') format('svg');
 	}
 }
+.font(@size: 13, @font: @font, @line: normal, @serif: sans-serif){
+	font: ~'@{size}px'/@line @font, @serif;
+}
+.font-family(@font: @font, @serif: sans-serif){
+	font-family: @font, @serif;
+}
+
+//Tags
+*{
+	margin: 0;
+	padding: 0;
+}
+html, body{
+	width: 100%;
+	height: 100%;
+}
+header{
+	background: @bg-grey;
+	padding: 20px;
+}
+body{
+	color: @black;
+	.font();
+}
 
 //Mixins
 
-//Tags
-
 //Header
 .login-form{
-
+	width: 300px;
+	fieldset{
+		padding: 20px;
+		.input-container{
+			padding-bottom: 10px;
+		}
+	}
 }

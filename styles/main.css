@@ -8,3 +8,29 @@
   src: url('fonts/Geometria Bold.eot');
   src: url('fonts/Geometria Bold.eot?#iefix') format('embedded-opentype'), url('fonts/Geometria Bold.woff') format('woff'), url('fonts/Geometria Bold.ttf') format('truetype'), url('fonts/Geometria Bold.svg#svgFontName') format('svg');
 }
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+header {
+  background: #dddddd;
+  padding: 20px;
+}
+body {
+  color: #000000;
+  font: 13px / normal 'Geometria', sans-serif;
+}
+.login-form {
+  width: 300px;
+}
+.login-form fieldset {
+  padding: 20px;
+}
+.login-form fieldset .input-container {
+  padding-bottom: 10px;
+}

@@ -1,0 +1,2 @@
+#RewriteEngine on
+#RewriteRule ^/profile/([a-z]+)\.html /profile.php?user=$1

@@ -4,12 +4,10 @@
 	$pass = "";
 	$db = "angular_js";
 
-	$postdata = file_get_contents("php://input");
-	$request = json_decode($postdata);
-	@$login = $request->login;
-	@$password = $request->password;
+	$login = $_POST['login'];
+	$password = $_POST['password'];
 
-	$return_obj = (object) array('login_error'=>true, 'password_error'=>true, 'login'=>$login, 'password'=>$password);
+	$return_obj = (object) array(error_num=>0, login=>$login, password=>$password);
 
 	$connect = mysqli_connect($server, $user, $pass, $db) or die("Couldn't connect to SQL Server on $server");
 
@@ -17,12 +15,11 @@
 	if($result = mysqli_query($connect, $result)){
 		$rowcount = mysqli_num_rows($result);
 		if($rowcount != 0){
-			$return_obj->login_error = false;
 			$row = $result->fetch_array(MYSQLI_NUM);
-			if($row[2] == $password){
-				$return_obj->password_error = false;
-			}
+			if($row[2] != $password){ $return_obj->error_num = 2; }
+			else{ $return_obj->id = $row[0]; }
 		}
+		else{ $return_obj->error_num = 1; }
 		echo json_encode($return_obj);
 		mysqli_free_result($result);
 	}
