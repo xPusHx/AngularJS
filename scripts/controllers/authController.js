@@ -1,67 +1,60 @@
-app.controller('authController', ['$scope', '$http', '$cookies', 'dbConnect', 'errorFunction', function($scope, $http, $cookies, dbConnect, errorFunction){
+app.controller('authController', ['$scope', '$http', '$cookies', 'baseUrl', 'dbConnect', 'formService', function($scope, $http, $cookies, baseUrl, dbConnect, formService){
 	$scope.user = {};
 	$scope.loginForm = {login: '', password: ''};
 	$scope.defaultCookies = function(){
 		$cookies.currentLogin = JSON.stringify({id: '', login: '', password: ''});
 	}
+	$scope.checkEmpty = function(element){
+		return formService.checkEmpty(element);
+	}
+	$scope.baseUrl = baseUrl;
+
+	//Init
+	if($cookies.currentLogin == null){ $scope.defaultCookies(); }
+	var currentLogin = JSON.parse($cookies.currentLogin), data = $.param({login: currentLogin.login, password: currentLogin.password});
+	dbConnect({url: 'php/connect.php', data: data},
+		{controller: 'authController', event: 'init', scope: $scope});
 
 	//connect success
 	$scope.$on('successConnect', function(events, output){
 		var data = output.data;
-		function consoleShowData(){
-			console.log(output.dependency.controller + ' -> ' + output.dependency.event + ' success:'), console.dir(data);
-		}
 		switch(output.dependency.event){
 			case 'init':
-				consoleShowData();
-				if(data.error_id == 0){
-					$scope.user = {id: data.id, name: data.name};
+				formService.consoleShowData(output);
+				if(data.errorId == 0){
+					$scope.user.id = data.id, $scope.user.name = data.login;
 					$scope.greetingShow = true, $scope.errorShow = false;
 				}
 				else{ $scope.defaultCookies(); }
 				break;
 			case 'submit':
-				consoleShowData();
-				if(data.error_id == 0){
-					$scope.user = {id: data.id, name: data.name};
+				formService.consoleShowData(output);
+				if(data.errorId == 0){
+					$scope.user.id = data.id, $scope.user.name = data.login;
 					$scope.greetingShow = true, $scope.errorShow = false;
 					$cookies.currentLogin = JSON.stringify({id: data.id, login: data.login, password: data.password});
 				}
-				else{ errorFunction.func(data.error_id, $scope); }
+				else{ formService.errorFunction(data.errorId, output.dependency);
+				 }
 				break;
-			default: console.log('Error! No event is specified');
+			default:
+				delete output.dependency.scope;
+				formService.errorFunction(5, output.dependency);
 		}
 	});
 
 	//events
-	$scope.submit = function(){
-		if($('#auth-login').val() != ''){
-			if($scope.loginForm.login !== undefined){
-				if($scope.loginForm.password != ''){
-					var $data = $.param({
-						login: angular.lowercase($scope.loginForm.login),
-						password: $scope.loginForm.password
-					});
-					dbConnect({url: 'php/connect.php', data: $data},
-						{controller: 'authController', event: 'submit'});
-				}
-				else{ errorFunction(5, $scope); }
-			}
-			else{ errorFunction(4, $scope); }
+	$scope.authSubmit = function(){
+		var dependency = {controller: 'authController', event: 'submit', scope: $scope};
+		if($scope.loginForm.login !== undefined){
+		var data = $.param({ login: angular.lowercase($scope.loginForm.login), password: $scope.loginForm.password});
+		dbConnect({url: 'php/connect.php', data: data},
+			dependency);
 		}
-		else{ errorFunction(3, $scope); }
-		return false;
+		else{ formService.errorFunction(6, dependency); }
 	}
-	$scope.init = function(){
-		if($cookies.currentLogin == null){ $scope.defaultCookies(); }
-		var currentLogin = JSON.parse($cookies.currentLogin), $data = $.param({
-			login: currentLogin.login,
-			password: currentLogin.password
-		});
-		dbConnect({url: 'php/connect.php', data: $data},
-			{controller: 'authController', event: 'init'});
-	}
-	$scope.exit = function(){
-		console.log(123);
+	$scope.logout = function(){
+		$scope.defaultCookies();
+		$scope.greetingShow = false;
 	}
 }]);

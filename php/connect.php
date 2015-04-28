@@ -7,7 +7,7 @@
 	$login = $_POST['login'];
 	$password = $_POST['password'];
 
-	$return_obj = (object) array(error_id=>0, login=>$login, password=>$password);
+	$returnObj = (object) array(errorId=>0, login=>$login, password=>$password);
 
 	$connect = mysqli_connect($server, $user, $pass, $db) or die("Couldn't connect to SQL Server on $server");
 
@@ -16,12 +16,13 @@
 		$rowcount = mysqli_num_rows($result);
 		if($rowcount != 0){
 			$row = $result->fetch_array(MYSQLI_NUM);
-			if($row[2] != $password){ $return_obj->error_id = 2; }
-			else{ $return_obj->id = $row[0]; }
+			if($row[2] != $password){ $returnObj->errorId = 4; }
+			else{ $returnObj->id = $row[0]; }
 		}
-		else{ $return_obj->error_id = 1; }
-		echo json_encode($return_obj);
+		else{ $returnObj->errorId = 3; }
 		mysqli_free_result($result);
 	}
+	else{ $returnObj->errorId = 1; }
+	echo json_encode($returnObj);
 	mysqli_close($connect);
 ?>

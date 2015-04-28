@@ -1,12 +1,4 @@
 	</section>
-
-	<footer>
-		<section class="footer-row">
-			<div class="content-container">
-				footer
-			</div>
-		</section>
-	</footer>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
@@ -22,6 +14,9 @@
 
 <!--Services-->
 <script src="scripts/services/dbConnect.js"></script>
-<script src="scripts/services/errorFunction.js"></script>
+	<script src="scripts/services/formService.js"></script>
+
+	<!--Directives-->
+	<script src="scripts/directives/footer.js"></script>
 </body>
 </html>

@@ -38,6 +38,9 @@ input, textarea, select{
 }
 button[type="submit"]{
 	background: @white;
+	&[disabled="disabled"]{
+		cursor: default;
+	}
 }
 
 //Header

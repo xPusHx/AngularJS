@@ -1,8 +1,10 @@
 <?php require('header.php'); ?>
 
-<section class="news">
+<section class="last-posts">
 	<div class="content-container">
-		<h2>News</h2>
+		<div class="header-container">
+			<h2>last posts</h2>
+		</div>
 	</div>
 </section>
 
