@@ -1,12 +1,347 @@
 @font-face {
   font-family: 'Geometria';
   src: url('fonts/Geometria.eot');
-  src: url('fonts/Geometria.eot?#iefix') format('embedded-opentype'), url('fonts/Geometria.woff') format('woff'), url('fonts/Geometria.ttf') format('truetype'), url('fonts/Geometria.svg#svgFontName') format('svg');
+  src: url('fonts/Geometria.eot?#iefix') format('embedded-opentype'), url('fonts/Geometria.woff') format('woff'), url('fonts/Geometria.woff2') format('woff2'), url('fonts/Geometria.ttf') format('truetype'), url('fonts/Geometria.svg#svgFontName') format('svg');
 }
 @font-face {
   font-family: 'Geometria Bold';
   src: url('fonts/Geometria Bold.eot');
-  src: url('fonts/Geometria Bold.eot?#iefix') format('embedded-opentype'), url('fonts/Geometria Bold.woff') format('woff'), url('fonts/Geometria Bold.ttf') format('truetype'), url('fonts/Geometria Bold.svg#svgFontName') format('svg');
+  src: url('fonts/Geometria Bold.eot?#iefix') format('embedded-opentype'), url('fonts/Geometria Bold.woff') format('woff'), url('fonts/Geometria Bold.woff2') format('woff2'), url('fonts/Geometria Bold.ttf') format('truetype'), url('fonts/Geometria Bold.svg#svgFontName') format('svg');
+}
+@font-face {
+  font-family: 'Geometria';
+  src: url('fonts/Geometria.eot');
+  src: url('fonts/Geometria.eot?#iefix') format('embedded-opentype'), url('fonts/Geometria.woff') format('woff'), url('fonts/Geometria.woff2') format('woff2'), url('fonts/Geometria.ttf') format('truetype'), url('fonts/Geometria.svg#svgFontName') format('svg');
+}
+@font-face {
+  font-family: 'Geometria';
+  src: url('fonts/Geometria.eot');
+  src: url('fonts/Geometria.eot?#iefix') format('embedded-opentype'), url('fonts/Geometria.woff') format('woff'), url('fonts/Geometria.woff2') format('woff2'), url('fonts/Geometria.ttf') format('truetype'), url('fonts/Geometria.svg#svgFontName') format('svg');
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.justify {
+  text-align: justify;
+}
+.justify:before,
+.justify:after {
+  content: '';
+  display: block;
+  width: 100%;
+}
+.justify:after {
+  display: inline-block;
+}
+.box-sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.content-container {
+  margin: 0 auto;
+  width: 980px;
+  position: relative;
+  zoom: 1;
+}
+.content-container:before,
+.content-container:after {
+  content: '';
+  display: table;
+}
+.content-container:after {
+  clear: both;
+}
+.section-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.ie8 .ie8fix {
+  position: relative;
+  z-index: 10;
+}
+.block-left {
+  float: left;
+}
+.block-right {
+  float: right;
+}
+.block-hidden {
+  display: none;
+}
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ico {
+  display: inline-block;
+  background-image: url('../images/sprites.png');
+  background-position: -0px -0px;
+}
+.centered {
+  display: table;
+  height: 100%;
+}
+.centered > div {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.centered > div img {
+  margin: 0 auto;
+}
+.placeholder {
+  color: #000000;
+}
+.select-container-inner {
+  background: #ffffff;
+  position: relative;
+}
+.select-container-inner select {
+  position: relative;
+  z-index: 10;
+}
+.select-container-inner .ico {
+  position: absolute;
+}
+.file-container input {
+  overflow: hidden;
+  width: 0 !important;
+  height: 0;
+  border: none;
+  padding: 0;
+}
+.ie8 .file-container input {
+  width: auto !important;
+  height: 30px;
+}
+.file-container .file-container-inner {
+  height: 30px;
+  position: relative;
+  zoom: 1;
+}
+.file-container .file-container-inner:before,
+.file-container .file-container-inner:after {
+  content: '';
+  display: table;
+}
+.file-container .file-container-inner:after {
+  clear: both;
+}
+.file-container .file-container-inner .file-container-path-container {
+  display: inline-block;
+  vertical-align: top;
+  float: left;
+  cursor: pointer;
+}
+.file-container .file-container-inner .file-container-path-container .file-container-label {
+  float: left;
+}
+.file-container .file-container-inner .file-container-path-container .file-container-path {
+  background: #ffffff;
+  height: 28px;
+  float: left;
+  outline: none;
+  border: none;
+  display: inline-block;
+  padding: 0 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ie8 .file-container .file-container-inner .file-container-path-container .file-container-path {
+  position: relative;
+  z-index: 10;
+}
+.file-container .file-container-inner .file-container-path-container .file-container-path span {
+  line-height: 28px;
+}
+.file-container .file-container-inner .file-container-path-container.error {
+  border: 1px solid red !important;
+}
+.file-container .file-container-inner .file-container-button {
+  float: left;
+  outline: none;
+  border: none;
+  display: inline-block;
+  padding: 0 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+  height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ie8 .file-container .file-container-inner .file-container-button {
+  position: relative;
+  z-index: 10;
+}
+.file-container .file-container-inner .file-container-button span {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+}
+.ie8 .file-container .file-container-inner {
+  display: none;
+}
+.focus {
+  border: 1px solid #6e94bb !important;
+}
+.text-container p,
+.text-container img,
+.text-container ul,
+.text-container figure,
+.text-container table,
+.text-container h1,
+.text-container h2,
+.text-container h3,
+.text-container h4,
+.text-container caption {
+  margin-bottom: 12px;
+}
+.text-container h1,
+.text-container h2,
+.text-container h3,
+.text-container h4,
+.text-container h5,
+.text-container h6 {
+  font: 13px / normal 'Geometria', sans-serif;
+}
+.text-container h4,
+.text-container h5,
+.text-container h6 {
+  margin-bottom: 6px;
+}
+.text-container p,
+.text-container span,
+.text-container br,
+.text-container font,
+.text-container li,
+.text-container td,
+.text-container strong,
+.text-container b,
+.text-container em,
+.text-container i,
+.text-container u,
+.text-container s,
+.text-container del,
+.text-container strike,
+.text-container caption,
+.text-container mark {
+  line-height: 20px;
+}
+.text-container b,
+.text-container strong {
+  font-family: 'Geometria Bold', sans-serif;
+}
+.text-container b i,
+.text-container strong i,
+.text-container b em,
+.text-container strong em {
+  font-family: 'Geometria', sans-serif;
+}
+.text-container i,
+.text-container em {
+  font-family: 'Geometria', sans-serif;
+}
+.text-container i b,
+.text-container em b,
+.text-container i strong,
+.text-container em strong {
+  font-family: 'Geometria', sans-serif;
+}
+.text-container ul li {
+  display: list-item;
+}
+.text-container img[align="left"] {
+  margin-right: 20px;
+}
+.text-container img[align="right"] {
+  margin-left: 20px;
+}
+.text-container figure figcaption {
+  margin-top: 12px;
+}
+.text-container figure[align="left"] {
+  float: left;
+  margin-right: 20px;
+}
+.text-container figure[align="right"] {
+  float: right;
+  margin-left: 20px;
+}
+.input-basic {
+  outline: none;
+  border: none;
+  display: inline-block;
+  padding: 0 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ie8 .input-basic {
+  position: relative;
+  z-index: 10;
+}
+.button-basic {
+  cursor: pointer;
+  text-decoration: none;
+  height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.button-basic span {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+}
+.button {
+  outline: none;
+  border: none;
+  display: inline-block;
+  padding: 0 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+  height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ie8 .button {
+  position: relative;
+  z-index: 10;
+}
+.button span {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
 }
 * {
   margin: 0;
@@ -17,20 +352,233 @@ body {
   width: 100%;
   height: 100%;
 }
-header {
-  background: #dddddd;
-  padding: 20px;
-}
 body {
+  background-color: #ffffff;
   color: #000000;
+  min-width: 1020px;
   font: 13px / normal 'Geometria', sans-serif;
 }
-.login-form {
-  width: 300px;
+body > .container {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
 }
-.login-form fieldset {
+section,
+header,
+footer {
+  width: 100%;
+  position: relative;
+}
+section.main {
+  padding-bottom: 200px;
+}
+footer {
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+}
+a {
+  cursor: pointer;
+  outline: none;
+  color: blue;
+}
+a:hover {
+  color: #3333ff;
+}
+ul {
+  list-style: none;
+}
+ul li {
+  display: inline-block;
+}
+img {
+  border: 0;
+  display: block;
+}
+input,
+textarea,
+button,
+select {
+  outline: none;
+  border: none;
+  display: inline-block;
+  padding: 0 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ie8 input,
+.ie8 textarea,
+.ie8 button,
+.ie8 select {
+  position: relative;
+  z-index: 10;
+}
+button {
+  cursor: pointer;
+  text-decoration: none;
+  height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+button span {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+}
+input {
+  height: 30px;
+}
+input::-ms-clear,
+input::-ms-reveal {
+  width: 0;
+  height: 0;
+  display: none;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  display: none;
+}
+textarea {
+  resize: none;
+  overflow: auto;
+  min-height: 30px;
+}
+input,
+textarea {
+  background: #ffffff;
+  color: #000000;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #000000 !important;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #000000 !important;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #000000 !important;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #000000 !important;
+}
+select {
+  height: 30px;
+  background: none;
+}
+select option {
+  padding: 6px 10px;
+}
+select option:first-child {
+  display: none;
+}
+input,
+textarea,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font: 13px / normal 'Geometria', sans-serif;
+}
+input.error,
+textarea.error,
+select.error {
+  border: 1px solid red;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #6e94bb;
+}
+input[type="button"] {
+  cursor: pointer;
+  text-decoration: none;
+  height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+input[type="button"] span {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+}
+label.error {
+  color: red !important;
+}
+fieldset {
+  border: none;
+}
+table {
+  border-collapse: collapse;
+}
+::-webkit-input-placeholder {
+  opacity: 1 !important;
+}
+:-ms-input-placeholder {
+  opacity: 1 !important;
+}
+:-moz-placeholder {
+  opacity: 1 !important;
+}
+::-moz-placeholder {
+  opacity: 1 !important;
+}
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+input,
+textarea,
+select {
+  border: 1px solid #aaaaaa;
+}
+button[type="submit"] {
+  background: #ffffff;
+}
+header {
+  background: #dddddd;
+}
+header section.header-row .content-container {
+  width: 100%;
   padding: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
-.login-form fieldset .input-container {
+header section.header-row .content-container .login-form fieldset {
+  zoom: 1;
+}
+header section.header-row .content-container .login-form fieldset:before,
+header section.header-row .content-container .login-form fieldset:after {
+  content: '';
+  display: table;
+}
+header section.header-row .content-container .login-form fieldset:after {
+  clear: both;
+}
+header section.header-row .content-container .login-form fieldset .input-container {
+  display: inline;
   padding-bottom: 10px;
+  float: left;
 }
